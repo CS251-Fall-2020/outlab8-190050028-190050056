@@ -1,0 +1,60 @@
+public class Vehicle{
+    private String regNo;
+    private String manufacturer;
+    private String owner;
+    private double co2;
+    private double co;
+    private double hc;
+    private String pollutionStatus;
+    
+    public Vehicle() {
+	regNo = null;
+	manufacturer = null;
+	owner = null;
+	co2 = -1.0;
+	co = -1.0;
+	hc = -1.0;
+	pollutionStatus = null;
+    }
+
+    public Vehicle(String rno, String manu, String own) {
+	regNo = rno;
+	owner = own;
+	manufacturer = manu;
+    }
+
+    public void setValues (double cdi, double cmono, double hyc) {
+	co2 = cdi;
+	co = cmono;
+	hc = hyc;
+    }
+
+    public void checkPollutionStatus() {
+    }
+
+    public void setPollutionStatus(String pstat) {
+	pollutionStatus = pstat;
+    }
+
+    public String getregNo() {
+	return regNo;
+    }
+
+    public double getco2() {
+	return co2;
+    }
+
+    public double getco() {
+	return co;
+    }
+
+    public double gethc() {
+	return hc;
+    }
+
+    public String toString() {
+	return pollutionStatus;
+    }
+
+    
+}

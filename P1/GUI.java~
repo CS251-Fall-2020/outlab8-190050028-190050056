@@ -1,0 +1,48 @@
+import java.io.*;
+import java.awt.event.*;
+
+import javax.swing.*;
+
+public class GUI implements ActionListener{
+    private JFrame frame;
+    private JButton select;
+    private JButton process;
+    private JTable tb;
+    private File fl; 
+
+    public GUI() {
+	frame = new JFrame("Tester");
+	frame.setSize(400,400);
+	select = new JButton("Select file");
+	select.addActionListener(this);
+	select.setBounds(50, 100, 95, 30);
+	process = new JButton("process");
+	process.addActionListener(this);
+	process.setBounds(200, 100, 95, 30);
+	frame.add(select);
+	frame.add(process);
+	frame.setLayout(null);
+	frame.setVisible(true);
+	fl = new File("MD5sums");
+    }
+
+    private void actionPerformed(ActionEvent e) {
+	if (e.getSource() == select) {
+	    System.out.println("Select pressed");
+	}
+	else if (e.getSource() == process) {
+	    System.out.println("Process pressed");
+	    String[] columns = { "plain-text", "result" };
+	    String[][] data = MD5.getResults();
+	    for (String[] row : data) {
+		System.out.printf("%s | %s\n", row[0], row[1]);
+	    }
+	    // tb = new JTable(data, columns);
+	    // frame.add(tb);
+	}
+    }
+
+	public static void main(String[] args) {
+		GUI gui = new GUI();
+	}
+}

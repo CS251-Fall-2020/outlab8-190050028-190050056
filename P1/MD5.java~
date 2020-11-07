@@ -1,0 +1,73 @@
+// Used links:
+// 1) https://www.tutorialspoint.com/java/java_files_io.htm
+// 2) https://stackoverflow.com/questions/304268/getting-a-files-md5-checksum-in-java
+// 3) https://www.geeksforgeeks.org/md5-hash-in-java/
+
+import javax.swing.*;
+import java.util.*;
+import java.io.*;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+public class MD5 {
+
+    public static String getMD5(String str) {
+	try {
+	    MessageDigest md = MessageDigest.getInstance("MD5");
+	    byte[] msg = md.digest(str.getBytes());
+	    BigInteger no = new BigInteger(1, msg);
+
+	    String hashtext = no.toString(16);
+	    while (hashtext.length()<32) {
+		hashtext = "0"+hashtext;
+	    }
+
+	    return hashtext;
+	}
+	catch (NoSuchAlgorithmException e) {
+	    return "";
+	}
+    }
+    public static ArrayList<String[]> getResults(String args[]) {
+	ArrayList<String[]> results = new ArrayList<String[]>();
+	FileReader in = null;
+	try {
+	    in = new FileReader("MD5sums");
+	    BufferedReader br = new BufferedReader(in);
+	    String line;
+	    while(true) {
+		try {
+		    line = br.readLine();
+		    if (line != null) {
+			String[] arr = line.split("-");
+			arr[0] = arr[0].strip();
+			arr[1] = arr[1].strip();
+			if (getMD5(arr[0]).equals(arr[1])) arr[1] = "verified";
+			else arr[1] = "not verified";
+			results.add(arr);
+		    }
+		    else break;
+		}
+		catch (IOException ex){
+		    break;
+		}
+	    }
+	}
+	catch (FileNotFoundException ex) {
+	    System.out.println("File not found!");
+	}
+	return results;
+    }
+
+    public static void main(String args[]) {
+	Jframe frame = new Jframe("Checksum!");
+	Jbutton b = new JButton("Select file");
+	b.setBounds(50,100,95,30);
+	frame.add(b);
+	frame.setSize(400,400);
+	frame.setLayout(null);
+	frame.setVisible(true);
+    }
+}
+   
