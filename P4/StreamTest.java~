@@ -1,0 +1,10 @@
+import java.util.*;
+
+public class StreamTest {
+    public Map<String, ArrayList<String>> makeGenre(String, ArrayList<String>) {
+	    `k
+	}
+	public static void main(String[] args) {
+	    Map<String, ArrayList<String>> userMovies
+	}
+}
