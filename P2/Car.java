@@ -4,6 +4,7 @@ public class Car extends Vehicle {
 	super(rno, manu, own);
     }
 
+    @Override
     public void checkPollutionStatus() {
 	if (co2<=15.0 && co<=0.5 && hc<=750.0) pollutionStatus = "PASS";
 	else pollutionStatus = "FAIL";
