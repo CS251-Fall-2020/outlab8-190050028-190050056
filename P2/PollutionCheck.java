@@ -22,10 +22,10 @@ class PollutionCheck {
 		    String[] fields = line.split(",");
 		    Vehicle v;
 		    if (fields[3].strip() == "Car") {
-			v = new Car(fields[0], fields[1], fields[2]);
+			v = new Car(fields[0].strip(), fields[1].strip(), fields[2].strip());
 		    }
 		    else {
-			v = new Truck(fields[0], fields[1], fields[2]);
+			v = new Truck(fields[0].strip(), fields[1].strip(), fields[2].strip());
 		    }
 		    arr.add(v);
 		    reg.add(fields[0]);
@@ -45,7 +45,7 @@ class PollutionCheck {
 		    int i = reg.indexOf(line.strip());
 		    if (i == -1)
 			System.out.println("NOT REGISTERED");
-		    else
+		    else 
 			System.out.println(arr.get(i).getStatus());
 		}
 	    }

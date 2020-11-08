@@ -65,5 +65,12 @@ public class MD5 {
 	String[][] res = new String[results.size()][2];
 	return results.toArray(res);
     }
+
+	public static void main(String[] args) {
+	    File fl = new File("MD5sums");
+	    String[][] results = MD5.getResults(fl);
+	    for (String[] row : results)
+		System.out.println(row[1]);
+	}
 }
    

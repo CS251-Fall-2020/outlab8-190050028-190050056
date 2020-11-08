@@ -1,11 +1,11 @@
 public class Car extends Vehicle {
 
     Car(String rno, String manu, String own) {
-	super(rno, own, manu);
+	super(rno, manu, own);
     }
 
     public void checkPollutionStatus() {
-	if (getco2()<=15.0 && getco()<=0.5 && gethc()<=750.0) setPollutionStatus("PASS");
-	else setPollutionStatus("FAIL");
+	if (co2<=15.0 && co<=0.5 && hc<=750.0) pollutionStatus = "PASS";
+	else pollutionStatus = "FAIL";
     }
 }
