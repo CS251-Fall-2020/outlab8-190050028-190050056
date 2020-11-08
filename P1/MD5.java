@@ -41,7 +41,7 @@ public class MD5 {
 		    try {
 			line = br.readLine();
 			if (line != null) {
-			    String[] arr = line.split("-");
+			    String[] arr = line.split("\t-\t");
 			    arr[0] = arr[0].strip();
 			    arr[1] = arr[1].strip();
 			    if (getMD5(arr[0]).equals(arr[1])) arr[1] = "verified";
