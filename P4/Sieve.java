@@ -14,7 +14,7 @@ public class Sieve{
                         System.out.print(num+" ");
                     }
         },List::addAll);
-        // System.out.println("\n");
+        System.out.printf("\n");
     }
 
 }
