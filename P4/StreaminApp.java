@@ -20,7 +20,7 @@ class StreaminApp
 			}
 			ArrayList<String> Arr3=new ArrayList<String>();
 			for(String g: Arr2){
-				if(Collections.frequency(Arr2,g)==maxfreq){
+				if(Collections.frequency(Arr2,g)==maxfreq && !Arr3.contains(g)){
 					Arr3.add(g);
 				}
 			}
